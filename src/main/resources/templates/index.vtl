@@ -1,0 +1,34 @@
+<h1>Fave Places!</h1>
+
+#if ($places)
+  <ul>
+    #foreach ($place in $places)
+      <li>$place.getCountry(), $place.getCity(): $place.getMainAttraction() on $place.getDate()</li>
+    #end
+  </ul>
+#else
+  <p>No places!</p>
+#end
+
+<p>Add a new Place:</p>
+
+<form action='/places' method='post'>
+  <div class="form-group">
+    <label for="country">What country was it?</label>
+    <input id="country" name="country" class="form-control" type="text">
+  </div>
+  <div class="form-group">
+    <label for="city">What city was it?</label>
+    <input id="city" name="city" class="form-control" type="text">
+  </div>
+  <div class="form-group">
+    <label for="mainAttraction">What attracted you to it?</label>
+    <input id="mainAttraction" name="mainAttraction" class="form-control" type="text">
+  </div>
+  <div class="form-group">
+    <label for="date">When?</label>
+    <input id="date" name="date" class="form-control" type="date">
+  </div>
+
+  <button type="submit" class="btn">Add to the list!</button>
+</form>
